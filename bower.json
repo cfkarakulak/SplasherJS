@@ -1,0 +1,21 @@
+{
+  "name": "splasherjs",
+  "description": "Makes tabifying easier",
+  "main": "Splasher/scripts/Splasher.js",
+  "authors": [
+    "Cemre Fatih Karakulak"
+  ],
+  "license": "WTFPL",
+  "keywords": [
+    "modal",
+    "open",
+  ],
+  "homepage": "https://github.com/cfkarakulak/SplasherJS",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}

@@ -1,0 +1,53 @@
+/*
+Project: CriteriaJS
+Author: Cemre Fatih Karakulak
+Repo: https://github.com/cfkarakulak/CriteriaJS
+Version: 1.0.4
+*/
+
+/*-----------------------------------------------------------------------------------*/
+/* #1.1 Customization
+/*-----------------------------------------------------------------------------------*/
+
+.container{
+  width: 500px;
+  margin:0 auto;
+  margin-top: 100px;
+  display: table;
+}
+
+.modal {
+  display: table;
+  position: fixed;
+  z-index: 10000;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  transition: all 0.2s;
+  pointer-events: none;
+  opacity: 0;
+  background: #6161617a;
+
+  &.active {
+    pointer-events: auto;
+    opacity: 1;
+  }
+
+  .modal__aligner {
+    display: table-cell;
+    vertical-align: middle;
+  }
+
+  .modal__wrapper {
+    margin: 0 auto;
+    width: 500px;
+    pointer-events: none;
+    background: #ffffff;
+    box-shadow: 0 4px 27px 0px #0000000d;
+    border-radius: 4px;
+    transition: opacity 0.35s cubic-bezier(0.23, 1, 0.32, 1), transform 0.35s cubic-bezier(0.23, 1, 0.32, 1), -webkit-transform 0.35s cubic-bezier(0.23, 1, 0.32, 1);
+  }
+}
