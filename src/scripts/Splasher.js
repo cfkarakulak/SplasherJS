@@ -45,8 +45,16 @@ export default class Splasher {
       return false;
     }
 
-    $('body').addClass('no-scroll')
-      .find($modal.get(0)).addClass('active');
+    $('body')
+      .addClass('no-scroll')
+      .find($modal.get(0))
+      .addClass('active');
+
+    if (data.attr.class) {
+      $($modal.get(0))
+        .addClass(data.attr.class)
+        .data('class', data.attr.class);
+    }
 
     return false;
   }
@@ -75,11 +83,15 @@ export default class Splasher {
   }
 
   static conceal($modal) {
-    $('body').removeClass('no-scroll reveal')
-      .find($modal.get(0)).addClass('passive');
+    $('body')
+      .removeClass('no-scroll reveal')
+      .find($modal.get(0))
+      .addClass('passive');
 
     setTimeout(() => {
-      $modal.removeClass('active passive');
+      $modal
+        .removeClass('active passive')
+        .removeClass($modal.data('class'));
     }, 80);
 
     return false;
@@ -90,12 +102,21 @@ export default class Splasher {
     const esc = config.includes('esc:') ? String(config.match(/esc:\((.*?)\)/)[1]) === 'true' : false;
     const blur = config.includes('blur:') ? String(config.match(/blur:\((.*?)\)/)[1]) === 'true' : false;
     const wait = config.includes('wait:') ? String(config.match(/wait:\((.*?)\)/)[1]) === 'true' : false;
+    const attr = config.includes('attr:') ? String(config.match(/attr:\((.*?)\)/)[1]) : null;
+    let xlass;
+
+    if (attr) {
+      xlass = attr.includes('class{') ? String(attr.match(/class{(.*?)}/)[1]) : false;
+    }
 
     return {
       name,
       esc,
       blur,
       wait,
+      attr: {
+        class: xlass,
+      },
     };
   }
 }
