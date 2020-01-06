@@ -1,6 +1,6 @@
 {
-  "name": "splasherjsx",
-  "version": "1.0.0",
+  "name": "@akinon/splasher",
+  "version": "1.0.2-rc.1",
   "description": "Splash your splashable splashes splendidly",
   "main": "Splasher/scripts/Splasher.js",
   "scripts": {
