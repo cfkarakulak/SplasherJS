@@ -119,4 +119,30 @@ export default class Splasher {
       },
     };
   }
+
+  static reveal(config, modal) {
+    const data = Splasher.explode(config);
+    const $modal = $(`.modal[data-identify="${modal}"]`);
+
+    if ($modal.length <= 0) {
+      return false;
+    }
+
+    if (data.wait) {
+      return false;
+    }
+
+    $('body')
+      .addClass('no-scroll')
+      .find($modal.get(0))
+      .addClass('active');
+
+    if (data.attr.class) {
+      $($modal.get(0))
+        .addClass(data.attr.class)
+        .data('class', data.attr.class);
+    }
+
+    return false;
+  }
 }
